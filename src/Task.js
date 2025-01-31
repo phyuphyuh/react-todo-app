@@ -14,23 +14,32 @@ const Task = ({ task, onDelete, onToggleCompleted, onEditTask }) => {
   };
 
   return (
-    <div className='grid grid-cols-12 py-2'>
+    <div className='grid grid-cols-12 py-3 content-center'>
       <input type="checkbox" checked={task.completed} onChange={() => onToggleCompleted(task.id)} className='cursor-pointer w-4 h-4 self-center' />
 
       {isEditing ? (
-        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} />
+        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} className='border border-sky-500 py-0 px-2 justify-self-start col-span-8 col-start-2' />
       ) : (
-        <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}} className='col-span-9 col-start-2'>
+        <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}} className='col-span-8 col-start-2'>
           {task.name}
         </span>
       )}
+
+      <div className='col-start-10 col-span-3 flex justify-between'>
+
       {isEditing ? (
-        <button onClick={handleSaveEdit}>Save</button>
+        <button onClick={handleSaveEdit} className='flex-1 bg-sky-500 hover:bg-sky-400 mx-1 px-2 rounded-xl text-white text-xs cursor-pointer'>Save</button>
       ) : (
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)} className='flex-1 bg-sky-500 hover:bg-sky-400 mx-1 px-2 rounded-xl text-white text-xs cursor-pointer'>Edit</button>
       )}
 
-      <button onClick={() => onDelete(task.id)} className='col-start-11 col-span-2 bg-sky-500 hover:bg-sky-400 p-1 rounded-2xl text-white text-sm cursor-pointer'>Delete</button>
+      <button
+        onClick={() => onDelete(task.id)}
+        className='flex-1 bg-sky-500 hover:bg-sky-400 mx-1 px-2 rounded-xl text-white text-xs cursor-pointer'>
+        Delete
+      </button>
+
+      </div>
     </div>
   );
 };
