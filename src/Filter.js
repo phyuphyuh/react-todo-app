@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Filter = ({ onFilterChange }) => {
+const Filter = ({ filter, onFilterChange }) => {
   return (
     <div className="grid grid-cols-1 mb-4">
-      <select onChange={(e) => onFilterChange(e.target.value)} className="col-start-1 row-start-1 w-full bg-gray-100 py-1.5 pr-8 pl-3 text-base rounded-lg shadow-md appearance-none sm:text-sm/6">
+      <select value={filter} onChange={(e) => onFilterChange(e.target.value)} className="col-start-1 row-start-1 w-full bg-gray-100 py-1.5 pr-8 pl-3 text-base rounded-lg shadow-md appearance-none sm:text-sm/6">
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="incomplete">Incomplete</option>
