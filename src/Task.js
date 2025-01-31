@@ -15,12 +15,12 @@ const Task = ({ task, onDelete, onToggleCompleted, onEditTask }) => {
 
   return (
     <div className='grid grid-cols-12 py-3 content-center'>
-      <input type="checkbox" checked={task.completed} onChange={() => onToggleCompleted(task.id)} className='cursor-pointer w-4 h-4 self-center' />
+      <input type="checkbox" checked={task.completed} onChange={() => onToggleCompleted(task.id)} className='cursor-pointer w-4 h-4 self-center justify-self-center' />
 
       {isEditing ? (
-        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} className='border border-sky-500 py-0 px-2 justify-self-start col-span-8 col-start-2' />
+        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} autoFocus className='col-span-7 col-start-2 pl-1' />
       ) : (
-        <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}} className='col-span-8 col-start-2'>
+        <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}} className='col-span-8 col-start-2 pl-1'>
           {task.name}
         </span>
       )}
