@@ -35,7 +35,8 @@ const Task = ({ task, onDelete, onToggleCompleted, onEditTask }) => {
 
       <button
         onClick={() => onDelete(task.id)}
-        className='flex-1 bg-sky-500 hover:bg-sky-400 mx-1 px-2 rounded-xl text-white text-xs cursor-pointer'>
+        className='flex-1 bg-sky-500 hover:bg-sky-400 mx-1 px-2 rounded-xl text-white text-xs cursor-pointer'
+      >
         Delete
       </button>
 
